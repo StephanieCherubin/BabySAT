@@ -14,3 +14,13 @@ var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
+// OUR MOCK ARRAY OF PROJECTS
+let reviews = [
+  { title: "Great Person", babySATterName: "Belinda" },
+  { title: "Awesome Personality", babySATterName: "Tatiana" }
+]
+
+// INDEX
+app.get('/reviews', (req, res) => {
+  res.render('reviews-index', { reviews: reviews });
+})
