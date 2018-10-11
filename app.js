@@ -1,4 +1,5 @@
 const express = require('express')
+const methodOverride = require('method-override')
 const app = express()
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/babySAT');
@@ -8,7 +9,7 @@ const Review = mongoose.model('Review', {
   babysitterName: String
 });
 const bodyParser = require('body-parser');
-
+app.use(methodOverride('_method'))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.listen(3000, () => {
   console.log('App listening on port 3000!')
@@ -67,5 +68,16 @@ app.get('/reviews/:id', (req, res) => {
 app.get('/reviews/:id/edit', (req, res) => {
     Review.findById(req.params.id, function(err, review) {
       res.render('reviews-edit', {review: review});
+    })
+})
+
+// UPDATE
+app.put('/reviews/:id', (req, res) => {
+  Review.findByIdAndUpdate(req.params.id, req.body)
+    .then(review => {
+      res.redirect(`/reviews/${review._id}`)
+    })
+    .catch(err => {
+      console.log(err.message)
     })
 })
