@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 
 app.get('/', (req, res) => {
-  res.render('home', { msg: 'Handlebars are Cool!' });
+  res.render('reviews-index', { reviews: reviews });
 })
 
 app.listen(3000, () => {
