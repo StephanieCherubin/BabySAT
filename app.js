@@ -54,3 +54,8 @@ app.post('/reviews', (req, res) => {
     console.log(err.message);
   })
 })
+
+// SHOW
+app.get('/reviews/:id', (req, res) => {
+  res.send('I\'m a review')
+});
