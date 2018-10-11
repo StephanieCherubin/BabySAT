@@ -22,7 +22,7 @@ app.set('view engine', 'handlebars');
 // OUR MOCK ARRAY OF PROJECTS
 let reviews = [
   { title: "Great Review", babysitterName: "Batman II" },
-  { title: "Awesome Movie", babysitterName: "Titanic" }
+  { title: "Awesome Babysitter", babysitterName: "Titanic" }
 ]
 
 // INDEX
@@ -57,5 +57,9 @@ app.post('/reviews', (req, res) => {
 
 // SHOW
 app.get('/reviews/:id', (req, res) => {
-  res.send('I\'m a review')
-});
+  Review.findById(req.params.id).then((review) => {
+    res.render('reviews-show', { review: review })
+  }).catch((err) => {
+    console.log(err.message);
+  })
+})
