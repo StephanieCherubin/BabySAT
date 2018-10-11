@@ -36,3 +36,8 @@ app.get('/', (req, res) => {
       console.log(err);
     })
 })
+
+// NEW
+app.get('/reviews/new', (req, res) => {
+  res.render('reviews-new', {});
+})
