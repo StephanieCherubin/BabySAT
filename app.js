@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/babySAT');
 const Review = mongoose.model('Review', {
   title: String,
+  description: String,
   babysitterName: String
 });
 const bodyParser = require('body-parser');
