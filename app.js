@@ -6,7 +6,9 @@ const Review = mongoose.model('Review', {
   title: String,
   babysitterName: String
 });
+const bodyParser = require('body-parser');
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.listen(3000, () => {
   console.log('App listening on port 3000!')
 })
@@ -40,4 +42,10 @@ app.get('/', (req, res) => {
 // NEW
 app.get('/reviews/new', (req, res) => {
   res.render('reviews-new', {});
+})
+
+// CREATE
+app.post('/reviews', (req, res) => {
+  console.log(req.body);
+  // res.render('reviews-new', {});
 })
