@@ -62,4 +62,10 @@ app.get('/reviews/:id', (req, res) => {
   }).catch((err) => {
     console.log(err.message);
   })
+
+// EDIT
+app.get('/reviews/:id/edit', (req, res) => {
+    Review.findById(req.params.id, function(err, review) {
+      res.render('reviews-edit', {review: review});
+    })
 })
