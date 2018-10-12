@@ -7,6 +7,7 @@ mongoose.connect('mongodb://localhost/babySAT');
 const reviews = require('./controllers/reviews')(app);
 const bodyParser = require('body-parser');
 const Review = require('./models/review')
+const Babysatter = require("./models/babysatter")
 
 app.use(express.static('./public'))
 app.use(methodOverride('_method'))
