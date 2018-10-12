@@ -1,0 +1,8 @@
+<h1>Babysatters</h1>
+ <a href="/babysatters/new">New BabySATter</a>
+
+ <div class="row">
+    {{#each babysatters}}
+        <h2><a href="/babysatters/{{this.id}}">{{this.title}}</a></h2>
+    {{/each}}
+</div>
