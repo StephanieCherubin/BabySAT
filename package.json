@@ -2,7 +2,7 @@
   "name": "babysat",
   "version": "1.0.0",
   "description": "We have been given a contract from xyz university to build an app that allows parents to find babysitters that will help prepare their toddlers for their future SATs. ",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
