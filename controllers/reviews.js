@@ -1,3 +1,8 @@
+const express = require('express');
+const app = express();
+const Babysatter = require('../models/babysatter');
+const Review = require('../models/review')
+
 module.exports = (app, Review) => {
 
     app.post('/babysatters/review', (req, res) => {
