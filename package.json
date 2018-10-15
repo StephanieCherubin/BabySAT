@@ -4,7 +4,8 @@
   "description": "We have been given a contract from xyz university to build an app that allows parents to find babysitters that will help prepare their toddlers for their future SATs. ",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
