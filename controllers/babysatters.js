@@ -1,10 +1,11 @@
+const express = require('express');
+const app = express();
 const Babysatter = require('../models/babysatter.js')
 const Review = require('../models/review.js');
-
-module.exports = function (app, Babysatter) {
+var admin = require('../app')
 
 // INDEX
-  app.get('/', function (req, res) => {
+  app.get('/', (req, res) => {
     Babysatter.find()
       .then(babysatters => {
         res.render('babysatters-index', {babysatters: babysatters});
@@ -36,26 +37,26 @@ module.exports = function (app, Babysatter) {
          Review.find({ babysatterId: req.params.id }).then(reviews => {
         if (admin == false) {
         res.render('babysatters-show', { babysatter: babysatter, reviews: reviews });
-    } else {
+        } else {
         res.render('babysatters-show-admin', { babysatter: babysatter, reviews: reviews })
-    }
+        }
     })
       }).catch((err) => {
         console.log(err.message);
-    });
+        });
     });
 
     // EDIT
     app.get('/babysatters/:id/edit', (req, res) => {
-      babysatter.findById(req.params.id, function(err, babysatter) {
+      Babysatter.findById(req.params.id, function(err, babysatter) {
         res.render('babysatters-edit', {babysatter: babysatter});
       })
     });
 
-// UPDATE
+    // UPDATE
     app.put('/babysatters/:id', (req, res) => {
-      babysatter.findByIdAndUpdate(req.params.id, req.body)
-        .then(review => {
+      Babysatter.findByIdAndUpdate(req.params.id, req.body)
+        .then(babysatter => {
           res.redirect(`/babysatters/${babysatter._id}`)
         })
         .catch(err => {
@@ -66,10 +67,12 @@ module.exports = function (app, Babysatter) {
 // DELETE
     app.delete('/babysatters/:id', function (req, res) {
       console.log("DELETE babysatter")
-      babysatter.findByIdAndRemove(req.params.id).then((babysatter) => {
+      Babysatter.findByIdAndRemove(req.params.id).then((babysatter) => {
         res.redirect('/');
       }).catch((err) => {
         console.log(err.message);
         });
     });
 }
+
+module.exports = app;

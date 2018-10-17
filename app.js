@@ -1,8 +1,10 @@
 const express = require('express')
 const methodOverride = require('method-override')
 const app = express()
+
+//Mongoose Connection
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/BabySAT', { useNewUrlParser:true});
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/babySAT', { useNewUrlParser:true});
 
 const Review = require('./models/review')
 const Babysatter = require("./models/babysatter")
@@ -20,15 +22,6 @@ var exphbs = require('express-handlebars');
 //Middleware
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
-
-// routes
-// reviewController(app);
-// babysatterController(app);
-
-// Mongoose Connection
-// const mongoUri = process.env.MONGODB_URI || "mongodb://localhost:27017/babySAT";
-//
-// mongoose.connect( mongoUri, { useNewUrlParser: true });
 
 //INDEX
 app.get('/', (req, res) => {
