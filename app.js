@@ -27,6 +27,16 @@ app.set('view engine', 'handlebars');
 app.get('/', (req, res) => {
   Babysatter.find()
     .then(babysatters => {
+      res.render('babysatters-home', {babysatters: babysatters});
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
+app.get('/babysatters', (req, res) => {
+  Babysatter.find()
+    .then(babysatters => {
       res.render('babysatters-index', {babysatters: babysatters});
     })
     .catch(err => {
