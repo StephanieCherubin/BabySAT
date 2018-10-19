@@ -10,3 +10,13 @@ body {
     padding: .375rem 1rem;
   }
 }
+
+a {
+    text-decoration: none;
+    }
+a:hover {
+    text-decoration: underline;
+    }
+a:link, a:visited {
+    color: white;
+    }

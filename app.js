@@ -91,7 +91,7 @@ app.get('/babysatters', (req, res) => {
 // DELETE
   app.delete('/babysatters/:id', function (req, res) {
     console.log("DELETE babysatter")
-    babysatter.findByIdAndRemove(req.params.id).then((babysatter) => {
+    babysatter.findByIdAndRemove(req.params.id).then((babysatters) => {
       res.redirect('/');
     }).catch((err) => {
       console.log(err.message);
