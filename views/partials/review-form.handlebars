@@ -3,15 +3,16 @@
   <fieldset>
     <legend>Leave a Review</legend>
     <!-- TITLE -->
-    <div class="form-group">
-      <label for="review-rating">Rating</label><br>
-      <input class="form-control"
-        id="review-rating"
-        type="text"
-        name="rating"
-        placeholder="Rating"/>
-    </div>
-
+    <p>
+      <!--RATING-->
+      <select name="rating">
+        <option>★</option>
+        <option>★★</option>
+        <option>★★★</option>
+        <option>★★★★</option>
+        <option>★★★★★</option>
+      </select>
+    </p>
     <!-- DESCRIPTION -->
     <div class="form-group">
       <label for="review-content">Review</label><br>
@@ -19,7 +20,7 @@
       id="review-content"
       name="content"
       rows="10"
-      placeholder="Your review..."/></textarea>
+      placeholder="Tell us how you really feel"/></textarea>
     </div>
   </fieldset>
 
