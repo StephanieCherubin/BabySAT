@@ -1,16 +1,18 @@
-<form action="/babysatters/reviews" method="post">
+<form action="/" method="post">
   <input type="hidden" value="{{babysatter._id}}" name="babysatterId">
   <fieldset>
     <legend>Leave a Review</legend>
     <!-- TITLE -->
     <p>
+        Rating
+        <br>
       <!--RATING-->
       <select name="rating">
-        <option>★</option>
-        <option>★★</option>
-        <option>★★★</option>
-        <option>★★★★</option>
         <option>★★★★★</option>
+        <option>★★★★</option>
+        <option>★★★</option>
+        <option>★★</option>
+        <option>★</option>
       </select>
     </p>
     <!-- DESCRIPTION -->
@@ -20,7 +22,7 @@
       id="review-content"
       name="content"
       rows="10"
-      placeholder="Tell us how you really feel"/></textarea>
+      placeholder="Tell us how you really feel..."/></textarea>
     </div>
   </fieldset>
 

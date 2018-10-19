@@ -64,15 +64,15 @@ var admin = require('../app')
       });
     });
 
-// DELETE
-    app.delete('/babysatters/:id', function (req, res) {
-      console.log("DELETE babysatter")
-      Babysatter.findByIdAndRemove(req.params.id).then((babysatter) => {
-        res.redirect('/');
-      }).catch((err) => {
-        console.log(err.message);
-        });
-    });
+// // DELETE
+//     app.delete('/babysatters/:id', function (req, res) {
+//       console.log("DELETE babysatter")
+//       Babysatter.findByIdAndRemove(req.params.id).then((babysatter) => {
+//         res.redirect('/');
+//       }).catch((err) => {
+//         console.log(err.message);
+//         });
+//     });
 }
 
 module.exports = app;

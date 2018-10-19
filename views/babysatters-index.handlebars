@@ -2,7 +2,11 @@
 
  <div class="row">
     {{#each babysatters}}
-        <h2><a href="/babysatters/{{this.id}}">{{this.title}}</a></h2>
+        <h2>
+            <!-- <a href="/babysatters/{{this.id}}">{{this.firstname}}</a> -->
+            {{this.firstname}}
+            {{this.lastname}}
+        </h2>
     {{/each}}
 
 </div>

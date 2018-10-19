@@ -37,6 +37,7 @@ app.get('/', (req, res) => {
 app.get('/babysatters', (req, res) => {
   Babysatter.find()
     .then(babysatters => {
+        console.log(babysatters)
       res.render('babysatters-index', {babysatters: babysatters});
     })
     .catch(err => {
@@ -72,14 +73,14 @@ app.get('/babysatters', (req, res) => {
 
   // EDIT
   app.get('/babysatters/:id/edit', (req, res) => {
-    babysatter.findById(req.params.id, function(err, babysatter) {
+    Babysatter.findById(req.params.id, function(err, babysatter) {
       res.render('babysatters-edit', {babysatter: babysatter});
     })
   });
 
 // UPDATE
   app.put('/babysatters/:id', (req, res) => {
-    babysatter.findByIdAndUpdate(req.params.id, req.body)
+    Babysatter.findByIdAndUpdate(req.params.id, req.body)
       .then(review => {
         res.redirect(`/babysatters/${babysatter._id}`)
       })
@@ -91,7 +92,7 @@ app.get('/babysatters', (req, res) => {
 // DELETE
   app.delete('/babysatters/:id', function (req, res) {
     console.log("DELETE babysatter")
-    babysatter.findByIdAndRemove(req.params.id).then((babysatters) => {
+    Babysatter.findByIdAndRemove(req.params.id).then((babysatters) => {
       res.redirect('/');
     }).catch((err) => {
       console.log(err.message);
